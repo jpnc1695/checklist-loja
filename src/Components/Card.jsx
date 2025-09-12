@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form';
 
 const Card = () => {
   return(
+
+    <>
     <section className="card">
       <div>
         <h1>CHECK LIST </h1>
@@ -29,8 +31,20 @@ const Card = () => {
             />
           </div>
         </Form>
-      </div>  
+      </div> 
     </section>
+
+    <section className='footer-card'>
+      <div >
+          <h1 >Lojas Inauguradas ____</h1>
+
+          <p><b>Presente em __ Estados e __ Cidades e __Internacionalização</b></p>
+                                            
+          
+        </div>
+    </section>
+
+  </>
   )
 }
 

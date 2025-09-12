@@ -4,6 +4,8 @@
   height: 400px;
   border-color: aliceblue;
   border-style: solid;
+  border-top: solid;
+  border-top-color: #242424;
   text-align: center;
 }
 h1{
@@ -32,4 +34,26 @@ p{
   justify-content: center;
   margin-top: 100px;
 
+}
+
+.footer-card{
+  width: 300px;
+  height: 120px;
+  font-size: 15px;
+  border-color: aliceblue;
+  background-color:#F2D30A ;
+  border-style: solid;
+  border-top: solid;
+
+}
+
+.footer-card h1{
+  font-style: italic; 
+  font-size: 15px;
+  color:#242424 ;
+}
+
+.footer-card p{
+  font-size: 17px;
+  color:#242424 ;
 }
