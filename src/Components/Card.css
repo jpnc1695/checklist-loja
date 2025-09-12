@@ -14,3 +14,22 @@ h1{
 p{
   font-size: 20px;
 }
+
+/* Card.css */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.radio-group .form-check {
+  display: flex;
+  align-items: center;
+}
+
+.form-radio{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+
+}
