@@ -1,4 +1,4 @@
-import './Card.css'
+import './Card.css';
 import Form from 'react-bootstrap/Form';
 
 const Card = () => {
