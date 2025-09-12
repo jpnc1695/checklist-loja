@@ -3,11 +3,6 @@
   color: #242424 !important;
 }
 
-.thead-amarela th {
-  background-color: #F2D30A !important;
-  border-color: #dee2e6;
-}
-
 /* Tabela.css */
 .tbody-branco {
   background-color: white !important;
@@ -16,8 +11,10 @@
 .tbody-branco tr {
   background-color: white !important;
   color: #242424 !important;
+
 }
 
 .tbody-branco tr td {
   background-color: white !important;
+
 }

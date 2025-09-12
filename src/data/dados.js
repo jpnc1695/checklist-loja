@@ -17,14 +17,13 @@ export const tabelaData = {
   ],
   
   compras: [
-    'Cotação de equipamentos',
-    'Seleção de fornecedores',
-    'Compra de mobiliário',
-    'Aquisição de estoque inicial',
-    'Contratação de serviços',
-    'Comparativo de preços',
-    'Negociação com fornecedores',
-    'Aprovação de orçamento'
+    'TREINAMENTO (Franqueado-Gerente)',
+    'Envio do pedidos de inauguração para a franquia',
+    'Recebimento de no minimo 90% dos pedidos',
+    'Recebimento de sacolas e embalagens',
+    'Cadastramento das promoções de inauguração',
+    'Envio para o marketing das promoções de inauguração',
+    'Avaliação p/ Reposição de Estoque'
   ],
   
   financeiro: [
