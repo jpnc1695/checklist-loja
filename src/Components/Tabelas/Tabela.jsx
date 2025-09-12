@@ -2,60 +2,23 @@ import Table from 'react-bootstrap/Table';
 import './Tabela.css';
 
 
-const Tabela = ({titulo, tbody}) => {
+const Tabela = ({titulo, tbody, dados = []}) => {
 
   return(
     
-    <Table size='md' height="535px" striped bordered hover>
+    <Table size='md' height="535px" width="260px" striped bordered hover>
       <thead className="thead-amarela">
         <tr>
           <th>{titulo}</th>         
         </tr>
       </thead>
       <tbody className={tbody}>
-        <tr >
-          <td>Envio de documentos ao shopping</td>              
-        </tr>
-        <tr >
-          <td>TESTE</td>              
-        </tr>   
-        <tr >
-          <td>TESTE</td>              
-        </tr>   
-        <tr >
-          <td>TESTE</td>              
-        </tr>
-        <tr >
-          <td>TESTE</td>              
-        </tr>
-        <tr >
-          <td>TESTE</td>              
-        </tr> 
-        <tr >
-          <td>TESTE</td>              
-        </tr>   
-        <tr >
-          <td>TESTE</td>              
-        </tr>   
-        <tr >
-          <td>TESTE</td>              
-        </tr>   
-        <tr >
-          <td>TESTE</td>              
-        </tr>   
-        <tr >
-          <td>TESTE</td>              
-        </tr>   
-        <tr >
-          <td>TESTE</td>              
-        </tr>   
-        <tr >
-          <td>TESTE</td>              
-        </tr>   
-        <tr >
-          <td>TESTE</td>              
-        </tr>           
-
+      {dados.map((item) => (
+          <tr key={item}>
+            <td>{item}</td>
+          </tr>
+        ))}
+        
       </tbody>
     </Table>
     

@@ -17,6 +17,7 @@ export default App
 import './App.css'
 import Card from './Components/Card/Card.jsx';
 import Tabela from './Components/Tabelas/Tabela.jsx';
+import { tabelaData } from './data/dados.js';
 
 
 function App() {
@@ -27,22 +28,22 @@ function App() {
             <Card/>
           </div>
           <div> 
-            <Tabela titulo={"Expansão"} tbody={"tbody-branco"}/>
+            <Tabela titulo={"Expansão"} dados={tabelaData.expansao} tbody={"tbody-branco"} />
           </div>   
           <div> 
-            <Tabela titulo={"Compras"} />
-          </div>
-          <div> 
-            <Tabela titulo={"Financeiro"} tbody={"tbody-branco"} />
-          </div>
-          <div> 
-            <Tabela titulo={"Expansão"}/>
-          </div>   
-          <div> 
-            <Tabela titulo={"Compras"}  tbody={"tbody-branco"} />
+            <Tabela titulo={"Compras"} dados={tabelaData.compras} />
           </div>
           <div> 
             <Tabela titulo={"Financeiro"} />
+          </div>
+          <div> 
+            <Tabela titulo={"Sistema"} tbody={"tbody-branco"}/>
+          </div>   
+          <div> 
+            <Tabela titulo={"Marketing"} />
+          </div>
+          <div> 
+            <Tabela titulo={"Supervisão"} tbody={"tbody-branco"} />
           </div>      
       </section>
     
