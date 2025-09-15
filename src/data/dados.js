@@ -13,7 +13,7 @@ export const tabelaData = {
     'Enviar Ficha de Dados Loja Nova',
     'Start/Termino Obras(35-45 dias)',
     'Comunicado Lojas Nova(inter.)',
-    'Informações Uniforme'
+    'Informações Uniforme',
   ],
   
   compras: [
@@ -29,22 +29,29 @@ export const tabelaData = {
   financeiro: [
     'Elaboração de fluxo de caixa',
     'Aprovação de budget',
-    'Pagamento de fornecedores',
-    'Controle de despesas',
-    'Projeção de receita',
-    'Análise de custos',
-    'Relatório financeiro',
-    'Previsão de investimentos'
+    'Pagamento de fornecedores'
+   
   ],
   
-  rh: [
-    'Recrutamento de equipe',
-    'Seleção de candidatos',
-    'Contratação de funcionários',
-    'Treinamento inicial',
-    'Uniformização da equipe',
-    'Plano de cargos e salários',
-    'Programa de benefícios',
-    'Integração de novos colaboradores'
-  ]
+  sistema: [
+    'Verificação de homologação do PDV Net',
+    'Afiliação PDV Net(Contratação do sistema)',
+    'Criação E-mail Lopja',
+    'Instalação do Sistema PDV Net',
+    'Atualização do sistema PDV Net',
+  ],
+  marketing: [
+    'Tapume',
+    'Mkt Mix inaugural',
+    'Campanha de inauguração',
+    'Entrega de kit de inauguração',
+    'Atualização do site com os dados da loja',
+  ],
+  supervisao: [
+    'Organização e arrumação do PDV e Estoque',
+    'Treinamento inicial para equipe de vendas',
+    '100% das notas fiscais cadastradas no sistema',
+    'Envio de fotos da inauguração(Inter.)',
+    'Relatório de inauguração até 4 dias Após a abertura', 
+  ],
 };

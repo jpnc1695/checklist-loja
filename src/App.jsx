@@ -23,30 +23,38 @@ import { tabelaData } from './data/dados.js';
 function App() {
   return (
     
-    <section className='container'>
-          <div>
-            <Card/>
-          </div>
-          <div> 
-            <Tabela titulo={"Expansão"} dados={tabelaData.expansao} tbody={"tbody-branco"} />
-          </div>   
-          <div> 
-            <Tabela titulo={"Compras"} dados={tabelaData.compras} />
-          </div>
-          <div> 
-            <Tabela titulo={"Financeiro"} />
-          </div>
-          <div> 
-            <Tabela titulo={"Sistema"} tbody={"tbody-branco"}/>
-          </div>   
-          <div> 
-            <Tabela titulo={"Marketing"} />
-          </div>
-          <div> 
-            <Tabela titulo={"Supervisão"} tbody={"tbody-branco"} />
-          </div>      
-      </section>
-    
+    <>
+          <section className='container'>
+            <div>
+              <Card />
+            </div>
+            <div>
+              <Tabela titulo={"Expansão"} dados={tabelaData.expansao} />
+            </div>
+            <div>
+              <Tabela titulo={"Compras"} dados={tabelaData.compras} tbody={"tbody-branco"} />
+            </div>
+            <div>
+              <Tabela titulo={"Financeiro"} dados={tabelaData.financeiro} />
+            </div>
+            <div>
+              <Tabela titulo={"Sistema"} tbody={"tbody-branco"} dados={tabelaData.sistema} />
+            </div>
+            <div>
+              <Tabela titulo={"Marketing"} dados={tabelaData.marketing} />
+            </div>
+            <div>
+              <Tabela titulo={"Supervisão"} tbody={"tbody-branco"} dados={tabelaData.supervisao} />
+            </div>
+            <div className='previsao-inauguracao'>
+              <span>Previsão de Inauguração </span>
+            </div>
+          </section>
+            <div className='proximas-inaugurações'>
+                <span>Proximas inaugurações</span>
+            </div>
+    </>
+              
   )
 }
          
