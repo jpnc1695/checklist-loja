@@ -1,6 +1,8 @@
 import Table from 'react-bootstrap/Table';
 import { Form, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import './TabelaLojas.css';
+import { useState } from 'react';
+
 
 export var lojasData  = [
   {
@@ -258,11 +260,39 @@ const todasEtapas = [
   'Relatório de inauguração até 4 dias Após a abertura'
 ];
 
+
 const TabelaLojas = () => {
-  // Combinar nomes das lojas com dados de status
-  const lojasCompletas = lojasData.map((loja, index) => ({
+  const [lojas, setLojas] = useState(lojasData);
+
+  // Função para atualizar o status de um checkbox
+  const handleCheckboxChange = (lojaId, categoria, indexNaCategoria) => {
+    console.log('Checkbox clicado:', lojaId, categoria, indexNaCategoria);
+    
+    setLojas(prevLojas => {
+      return prevLojas.map(loja => {
+        if (loja.id === lojaId) {
+          // Cria uma cópia do array da categoria
+          const novaCategoria = [...loja[categoria]];
+          // Inverte o valor do checkbox
+          novaCategoria[indexNaCategoria] = !novaCategoria[indexNaCategoria];
+          
+          console.log('Novo valor:', novaCategoria[indexNaCategoria]);
+          
+          // Retorna a loja com a categoria atualizada
+          return {
+            ...loja,
+            [categoria]: novaCategoria
+          };
+        }
+        return loja;
+      });
+    });
+  };
+
+  // Use o estado 'lojas' em vez de 'lojasData'
+  const lojasCompletas = lojas.map((loja) => ({
     ...loja,
-    nomeCompleto: loja[index] || loja.nome // Usa o nome do array se disponível
+    nomeCompleto: loja.nome
   }));
 
   // Criar tooltips para cada etapa
@@ -320,7 +350,7 @@ const TabelaLojas = () => {
                         <Form.Check 
                           type="checkbox" 
                           checked={isChecked}
-                          readOnly
+                          onChange={() => handleCheckboxChange(loja.id, categoria, indiceNaCategoria)}
                         />
                       </div>
                     </OverlayTrigger>
