@@ -19,7 +19,6 @@ import Card from './Components/Card/Card.jsx';
 import Tabela from './Components/Tabelas/Tabela.jsx';
 import { tabelaData } from './data/dados.js';
 
-
 function App() {
   return (
     
@@ -51,7 +50,7 @@ function App() {
             </div>
           </section>
             <div className='proximas-inaugurações'>
-                <span>Proximas inaugurações</span>
+                <span>Próximas inaugurações</span>
             </div>
     </>
               
