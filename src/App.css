@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: row;
   border: 1px solid #ddd;
-  width: 1918px;
+  width: 1900px;
   height: 420px;
 }
 .previsao-inauguracao{
@@ -23,6 +23,6 @@
   text-align: left;
   padding-left: 10px;
   height: 35px;
-  width: 1915px;
+  width:1900px;
   border-top:  1px solid white;
 }
