@@ -1,0 +1,17 @@
+.tabela-lojas{
+  background-color: white !important;
+  color: #242424 !important;
+}
+
+.primeira-coluna{
+  width: 300px;
+}
+
+.checkbox-loja{
+  width: 35px;   /* largura */
+  cursor: pointer;
+}
+
+.ultima-coluna{
+  width: 130px;
+}

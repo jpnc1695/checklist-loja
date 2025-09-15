@@ -17,7 +17,9 @@ export default App
 import './App.css'
 import Card from './Components/Card/Card.jsx';
 import Tabela from './Components/Tabelas/Tabela.jsx';
+import TabelaLojas from './Components/TabelaLojas/TabelaLojas.jsx';
 import { tabelaData } from './data/dados.js';
+
 
 function App() {
   return (
@@ -52,6 +54,11 @@ function App() {
             <div className='proximas-inaugurações'>
                 <span>Próximas inaugurações</span>
             </div>
+          <section>
+          <TabelaLojas>
+            
+          </TabelaLojas>
+          </section>
     </>
               
   )
