@@ -40,7 +40,7 @@ const TabelaLojas = () => {
                 </td>
               ))}
               <td className='ultima-coluna'>
-                data
+                01/01/2026
               </td>
             </tr>
           ))}
