@@ -19,6 +19,7 @@ import Card from './Components/Card/Card.jsx';
 import Tabela from './Components/Tabelas/Tabela.jsx';
 import TabelaLojas from './Components/TabelaLojas/TabelaLojas.jsx';
 import { tabelaData } from './data/dados.js';
+import { lojas } from './data/loja.js';
 
 
 function App() {

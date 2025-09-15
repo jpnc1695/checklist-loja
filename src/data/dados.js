@@ -13,7 +13,7 @@ export const tabelaData = {
     'Enviar Ficha de Dados Loja Nova',
     'Start/Termino Obras(35-45 dias)',
     'Comunicado Lojas Nova(inter.)',
-    'Informações Uniforme',
+    'Informações Uniforme'
   ],
   
   compras: [
@@ -38,20 +38,20 @@ export const tabelaData = {
     'Afiliação PDV Net(Contratação do sistema)',
     'Criação E-mail Lopja',
     'Instalação do Sistema PDV Net',
-    'Atualização do sistema PDV Net',
+    'Atualização do sistema PDV Net'
   ],
   marketing: [
     'Tapume',
     'Mkt Mix inaugural',
     'Campanha de inauguração',
     'Entrega de kit de inauguração',
-    'Atualização do site com os dados da loja',
+    'Atualização do site com os dados da loja'
   ],
   supervisao: [
     'Organização e arrumação do PDV e Estoque',
     'Treinamento inicial para equipe de vendas',
     '100% das notas fiscais cadastradas no sistema',
     'Envio de fotos da inauguração(Inter.)',
-    'Relatório de inauguração até 4 dias Após a abertura', 
+    'Relatório de inauguração até 4 dias Após a abertura'
   ],
 };

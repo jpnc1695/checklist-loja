@@ -4,14 +4,56 @@
 }
 
 .primeira-coluna{
-  width: 300px;
+  width: 310px;
 }
 
 .checkbox-loja{
-  width: 35px;   /* largura */
+  width: 36px;   /* largura */
   cursor: pointer;
 }
 
 .ultima-coluna{
-  width: 130px;
+  width: 110px;
+}
+
+.checkbox-loja {
+  text-align: center;
+  padding: 4px !important;
+  max-width: 20px;
+  min-width: 28px;
+  position: relative;
+}
+
+.primeira-coluna {
+  min-width: 180px;
+  font-weight: bold;
+}
+
+.ultima-coluna {
+  min-width: 100px;
+  text-align: center;
+}
+
+.tabela-lojas tr:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* Estilo para o tooltip */
+.tooltip {
+  font-size: 15px;
+  max-width: 250px;
+  z-index: 1060;
+  background-color: black;
+}
+
+/* Melhorar a aparência dos checkboxes */
+.form-check-input {
+  cursor: pointer;
+  width: 15px;
+  height: 18px;
+}
+
+.form-check-input:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
 }
