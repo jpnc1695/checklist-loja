@@ -1,211 +1,7 @@
 import Table from 'react-bootstrap/Table';
-import { Form, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { Form, Tooltip, OverlayTrigger, Spinner, Alert, Button } from 'react-bootstrap';
 import './TabelaLojas.css';
-import { useState } from 'react';
-
-
-export var lojasData  = [
-  {
-    "id": 1,
-    "nome": "Loja Centro",
-    "expansao": [true, true, true, true, true, true, true, true, true, true, true, true, true, true],
-    "compras": [true, true, true, true, true, true, true],
-    "financeiro": [true, true, true],
-    "sistema": [true, true, true, true, true],
-    "marketing": [true, true, true, true, true],
-    "supervisao": [true, true, true, true, true]
-  },
-  {
-    "id": 2,
-    "nome": "Loja Shopping Norte",
-    "expansao": [true, false, true, false, true, false, true, false, true, false, true, false, true, false],
-    "compras": [false, true, false, true, false, true, false],
-    "financeiro": [true, false, true],
-    "sistema": [false, true, false, true, false],
-    "marketing": [true, false, true, false, true],
-    "supervisao": [false, true, false, true, false]
-  },
-  {
-    "id": 3,
-    "nome": "Loja Jardins",
-    "expansao": [false, true, false, true, false, true, false, true, false, true, false, true, false, true],
-    "compras": [true, false, true, false, true, false, true],
-    "financeiro": [false, true, false],
-    "sistema": [true, false, true, false, true],
-    "marketing": [false, true, false, true, false],
-    "supervisao": [true, false, true, false, true]
-  },
-  {
-    "id": 4,
-    "nome": "Loja Vila Madalena",
-    "expansao": [true, true, false, false, true, true, false, false, true, true, false, false, true, true],
-    "compras": [false, false, true, true, false, false, true],
-    "financeiro": [true, true, false],
-    "sistema": [false, false, true, true, false],
-    "marketing": [true, true, false, false, true],
-    "supervisao": [false, false, true, true, false]
-  },
-  {
-    "id": 5,
-    "nome": "Loja Paulista",
-    "expansao": [false, false, true, true, false, false, true, true, false, false, true, true, false, false],
-    "compras": [true, true, false, false, true, true, false],
-    "financeiro": [false, false, true],
-    "sistema": [true, true, false, false, true],
-    "marketing": [false, false, true, true, false],
-    "supervisao": [true, true, false, false, true]
-  },
-  {
-    "id": 6,
-    "nome": "Loja Tatuapé",
-    "expansao": [true, false, false, true, true, false, false, true, true, false, false, true, true, false],
-    "compras": [false, true, true, false, false, true, true],
-    "financeiro": [true, false, false],
-    "sistema": [false, true, true, false, false],
-    "marketing": [true, false, false, true, true],
-    "supervisao": [false, true, true, false, false]
-  },
-  {
-    "id": 7,
-    "nome": "Loja Moema",
-    "expansao": [false, true, true, false, false, true, true, false, false, true, true, false, false, true],
-    "compras": [true, false, false, true, true, false, false],
-    "financeiro": [false, true, true],
-    "sistema": [true, false, false, true, true],
-    "marketing": [false, true, true, false, false],
-    "supervisao": [true, false, false, true, true]
-  },
-  {
-    "id": 8,
-    "nome": "Loja Ibirapuera",
-    "expansao": [true, true, true, false, false, false, true, true, true, false, false, false, true, true],
-    "compras": [false, false, false, true, true, true, false],
-    "financeiro": [true, true, true],
-    "sistema": [false, false, false, true, true],
-    "marketing": [true, true, true, false, false],
-    "supervisao": [false, false, false, true, true]
-  },
-  {
-    "id": 9,
-    "nome": "Loja Morumbi",
-    "expansao": [false, false, false, true, true, true, false, false, false, true, true, true, false, false],
-    "compras": [true, true, true, false, false, false, true],
-    "financeiro": [false, false, false],
-    "sistema": [true, true, true, false, false],
-    "marketing": [false, false, false, true, true],
-    "supervisao": [true, true, true, false, false]
-  },
-  {
-    "id": 10,
-    "nome": "Loja Alphaville",
-    "expansao": [true, false, true, false, true, false, true, false, true, false, true, false, true, false],
-    "compras": [false, true, false, true, false, true, false],
-    "financeiro": [true, false, true],
-    "sistema": [false, true, false, true, false],
-    "marketing": [true, false, true, false, true],
-    "supervisao": [false, true, false, true, false]
-  },
-  {
-    "id": 11,
-    "nome": "Loja Tamboré",
-    "expansao": [false, true, false, true, false, true, false, true, false, true, false, true, false, true],
-    "compras": [true, false, true, false, true, false, true],
-    "financeiro": [false, true, false],
-    "sistema": [true, false, true, false, true],
-    "marketing": [false, true, false, true, false],
-    "supervisao": [true, false, true, false, true]
-  },
-  {
-    "id": 12,
-    "nome": "Loja Interlagos",
-    "expansao": [true, true, false, false, true, true, false, false, true, true, false, false, true, true],
-    "compras": [false, false, true, true, false, false, true],
-    "financeiro": [true, true, false],
-    "sistema": [false, false, true, true, false],
-    "marketing": [true, true, false, false, true],
-    "supervisao": [false, false, true, true, false]
-  },
-  {
-    "id": 13,
-    "nome": "Loja Santo Amaro",
-    "expansao": [false, false, true, true, false, false, true, true, false, false, true, true, false, false],
-    "compras": [true, true, false, false, true, true, false],
-    "financeiro": [false, false, true],
-    "sistema": [true, true, false, false, true],
-    "marketing": [false, false, true, true, false],
-    "supervisao": [true, true, false, false, true]
-  },
-  {
-    "id": 14,
-    "nome": "Loja Jabaquara",
-    "expansao": [true, false, false, true, true, false, false, true, true, false, false, true, true, false],
-    "compras": [false, true, true, false, false, true, true],
-    "financeiro": [true, false, false],
-    "sistema": [false, true, true, false, false],
-    "marketing": [true, false, false, true, true],
-    "supervisao": [false, true, true, false, false]
-  },
-  {
-    "id": 15,
-    "nome": "Loja São Caetano",
-    "expansao": [false, true, true, false, false, true, true, false, false, true, true, false, false, true],
-    "compras": [true, false, false, true, true, false, false],
-    "financeiro": [false, true, true],
-    "sistema": [true, false, false, true, true],
-    "marketing": [false, true, true, false, false],
-    "supervisao": [true, false, false, true, true]
-  },
-  {
-    "id": 16,
-    "nome": "Loja ABC",
-    "expansao": [true, true, true, false, false, false, true, true, true, false, false, false, true, true],
-    "compras": [false, false, false, true, true, true, false],
-    "financeiro": [true, true, true],
-    "sistema": [false, false, false, true, true],
-    "marketing": [true, true, true, false, false],
-    "supervisao": [false, false, false, true, true]
-  },
-  {
-    "id": 17,
-    "nome": "Loja Osasco",
-    "expansao": [false, false, false, true, true, true, false, false, false, true, true, true, false, false],
-    "compras": [true, true, true, false, false, false, true],
-    "financeiro": [false, false, false],
-    "sistema": [true, true, true, false, false],
-    "marketing": [false, false, false, true, true],
-    "supervisao": [true, true, true, false, false]
-  },
-  {
-    "id": 18,
-    "nome": "Loja Barra Funda",
-    "expansao": [true, false, true, false, true, false, true, false, true, false, true, false, true, false],
-    "compras": [false, true, false, true, false, true, false],
-    "financeiro": [true, false, true],
-    "sistema": [false, true, false, true, false],
-    "marketing": [true, false, true, false, true],
-    "supervisao": [false, true, false, true, false]
-  },
-  {
-    "id": 19,
-    "nome": "Loja Lapa",
-    "expansao": [false, true, false, true, false, true, false, true, false, true, false, true, false, true],
-    "compras": [true, false, true, false, true, false, true],
-    "financeiro": [false, true, false],
-    "sistema": [true, false, true, false, true],
-    "marketing": [false, true, false, true, false],
-    "supervisao": [true, false, true, false, true]
-  },
-  {
-    "id": 20,
-    "nome": "Loja Pinheiros",
-    "expansao": [true, true, false, false, true, true, false, false, true, true, false, false, true, true],
-    "compras": [false, false, true, true, false, false, true],
-    "financeiro": [true, true, false],
-    "sistema": [false, false, true, true, false],
-    "marketing": [true, true, false, false, true],
-    "supervisao": [false, false, true, true, false]
-  }
-]
+import { useState, useEffect } from 'react';
 
 const todasEtapas = [
   // Expansão (14 itens)
@@ -260,25 +56,92 @@ const todasEtapas = [
   'Relatório de inauguração até 4 dias Após a abertura'
 ];
 
+// Mapeamento de departamentos para as etapas
+const mapeamentoDepartamentos = {
+  expansao: todasEtapas.slice(0, 14),
+  compras: todasEtapas.slice(14, 21),
+  financeiro: todasEtapas.slice(21, 24),
+  sistema: todasEtapas.slice(24, 29),
+  marketing: todasEtapas.slice(29, 34),
+  supervisao: todasEtapas.slice(34, 39)
+};
 
-const TabelaLojas = () => {
-  const [lojas, setLojas] = useState(lojasData);
+const TabelaLojas = ({ dados, carregando, erro, onRecarregar }) => {
+  const [lojas, setLojas] = useState([]);
+  const [dadosFormatados, setDadosFormatados] = useState(false);
 
-  // Função para atualizar o status de um checkbox
+  // Transformar os dados do Sheets para o formato esperado pelo componente
+  useEffect(() => {
+    if (dados && dados.success && dados.data) {
+      formatarDadosSheets(dados.data);
+    }
+  }, [dados]);
+
+  const formatarDadosSheets = (dadosSheets) => {
+    try {
+      console.log('Dados recebidos do Sheets:', dadosSheets);
+      
+      // Primeiro, vamos encontrar todas as lojas únicas
+      const todasLojas = {};
+      
+      // Processar cada departamento
+      Object.entries(dadosSheets).forEach(([departamento, infoDepto]) => {
+        if (infoDepto.data && infoDepto.data.length > 0) {
+          console.log(`Processando departamento: ${departamento}`, infoDepto.data);
+          
+          infoDepto.data.forEach(lojaSheets => {
+            const lojaId = lojaSheets.id_loja || parseInt(lojaSheets.ID) || lojaSheets['Nome da Loja'];
+            
+            if (!todasLojas[lojaId]) {
+              // Criar nova loja
+              todasLojas[lojaId] = {
+                id: lojaId,
+                nome: lojaSheets.nome_loja || lojaSheets['Nome da Loja'] || `Loja ${lojaId}`,
+                expansao: new Array(14).fill(false),
+                compras: new Array(7).fill(false),
+                financeiro: new Array(3).fill(false),
+                sistema: new Array(5).fill(false),
+                marketing: new Array(5).fill(false),
+                supervisao: new Array(5).fill(false)
+              };
+            }
+            
+            // Preencher as etapas deste departamento
+            const etapasDepartamento = mapeamentoDepartamentos[departamento];
+            if (etapasDepartamento) {
+              etapasDepartamento.forEach((etapa, index) => {
+                if (lojaSheets[etapa] !== undefined) {
+                  const valor = typeof lojaSheets[etapa] === 'string' 
+                    ? lojaSheets[etapa].toLowerCase() === 'true' || lojaSheets[etapa] === '1'
+                    : Boolean(lojaSheets[etapa]);
+                  
+                  todasLojas[lojaId][departamento][index] = valor;
+                }
+              });
+            }
+          });
+        }
+      });
+      
+      // Converter objeto para array
+      const lojasArray = Object.values(todasLojas);
+      console.log('Lojas formatadas:', lojasArray);
+      
+      setLojas(lojasArray);
+      setDadosFormatados(true);
+      
+    } catch (error) {
+      console.error('Erro ao formatar dados do Sheets:', error);
+    }
+  };
+
   const handleCheckboxChange = (lojaId, categoria, indexNaCategoria) => {
-    console.log('Checkbox clicado:', lojaId, categoria, indexNaCategoria);
-    
     setLojas(prevLojas => {
       return prevLojas.map(loja => {
         if (loja.id === lojaId) {
-          // Cria uma cópia do array da categoria
           const novaCategoria = [...loja[categoria]];
-          // Inverte o valor do checkbox
           novaCategoria[indexNaCategoria] = !novaCategoria[indexNaCategoria];
           
-          console.log('Novo valor:', novaCategoria[indexNaCategoria]);
-          
-          // Retorna a loja com a categoria atualizada
           return {
             ...loja,
             [categoria]: novaCategoria
@@ -289,82 +152,132 @@ const TabelaLojas = () => {
     });
   };
 
-  // Use o estado 'lojas' em vez de 'lojasData'
-  const lojasCompletas = lojas.map((loja) => ({
-    ...loja,
-    nomeCompleto: loja.nome
-  }));
-
-  // Criar tooltips para cada etapa
   const renderTooltip = (etapa) => (
     <Tooltip id={`tooltip-${etapa}`}>
       {etapa}
     </Tooltip>
   );
 
+  // Debug: mostrar dados recebidos
+  useEffect(() => {
+    if (dados) {
+      console.log('Dados recebidos no TabelaLojas:', dados);
+    }
+  }, [dados]);
+
+  // Estados de carregamento e erro
+  if (carregando) {
+    return (
+      <div className="text-center p-4">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Carregando...</span>
+        </Spinner>
+        <p className="mt-2">Carregando dados das lojas...</p>
+      </div>
+    );
+  }
+
+  if (erro) {
+    return (
+      <Alert variant="danger" className="m-3">
+        <Alert.Heading>Erro ao carregar dados</Alert.Heading>
+        <p>{erro}</p>
+        <Button variant="outline-danger" onClick={onRecarregar}>
+          Tentar Novamente
+        </Button>
+      </Alert>
+    );
+  }
+
+  if (!dados || !dados.success) {
+    return (
+      <Alert variant="warning" className="m-3">
+        <Alert.Heading>Nenhum dado disponível</Alert.Heading>
+        <p>Não foi possível carregar os dados das lojas.</p>
+        <Button variant="outline-warning" onClick={onRecarregar}>
+          Recarregar Dados
+        </Button>
+      </Alert>
+    );
+  }
+
+  if (!dadosFormatados || lojas.length === 0) {
+    return (
+      <Alert variant="info" className="m-3">
+        <Alert.Heading>Processando dados...</Alert.Heading>
+        <p>Formatando as informações recebidas.</p>
+        <Button variant="outline-info" onClick={onRecarregar}>
+          Recarregar
+        </Button>
+      </Alert>
+    );
+  }
+
   return (
     <>
-      <Table bordered hover responsive>
-        <tbody className="tabela-lojas">
-          {lojasCompletas.map((loja) => (
-            <tr key={loja.id}>
-              {/* Primeira coluna com o nome da loja */}
-              <td className="primeira-coluna">{loja.nomeCompleto}</td>
+   {/*    <div className="d-flex justify-content-between align-items-center mb-3">
+        <h4>Status das Lojas ({lojas.length} lojas carregadas)</h4>
+        <Button variant="outline-primary" size="sm" onClick={onRecarregar}>
+          ↻ Atualizar
+        </Button>
+      </div> */}
 
-              {/* Checkboxes para cada etapa */}
-              {todasEtapas.map((etapa, index) => {
-                // Determinar a qual categoria pertence esta etapa
-                let categoria;
-                let indiceNaCategoria;
+      <div className="table-responsive">
+        <Table bordered hover responsive>
+          <tbody className="tabela-lojas">
+            {lojas.map((loja) => (
+              <tr key={loja.id}>
+                <td className="primeira-coluna">{loja.nome}</td>
+
+                {todasEtapas.map((etapa, index) => {
+                  let categoria;
+                  let indiceNaCategoria;
+                  
+                  if (index < 14) {
+                    categoria = 'expansao';
+                    indiceNaCategoria = index;
+                  } else if (index < 21) {
+                    categoria = 'compras';
+                    indiceNaCategoria = index - 14;
+                  } else if (index < 24) {
+                    categoria = 'financeiro';
+                    indiceNaCategoria = index - 21;
+                  } else if (index < 29) {
+                    categoria = 'sistema';
+                    indiceNaCategoria = index - 24;
+                  } else if (index < 34) {
+                    categoria = 'marketing';
+                    indiceNaCategoria = index - 29;
+                  } else {
+                    categoria = 'supervisao';
+                    indiceNaCategoria = index - 34;
+                  }
+                  
+                  const isChecked = loja[categoria][indiceNaCategoria];
+                  
+                  return (
+                    <td key={index} className="checkbox-loja">
+                      <OverlayTrigger placement="top" overlay={renderTooltip(etapa)}>
+                        <div>
+                          <Form.Check 
+                            type="checkbox" 
+                            checked={isChecked}
+                            onChange={() => handleCheckboxChange(loja.id, categoria, indiceNaCategoria)}
+                          />
+                        </div>
+                      </OverlayTrigger>
+                    </td>
+                  );
+                })}
                 
-                if (index < 14) {
-                  categoria = 'expansao';
-                  indiceNaCategoria = index;
-                } else if (index < 21) {
-                  categoria = 'compras';
-                  indiceNaCategoria = index - 14;
-                } else if (index < 24) {
-                  categoria = 'financeiro';
-                  indiceNaCategoria = index - 21;
-                } else if (index < 29) {
-                  categoria = 'sistema';
-                  indiceNaCategoria = index - 24;
-                } else if (index < 34) {
-                  categoria = 'marketing';
-                  indiceNaCategoria = index - 29;
-                } else {
-                  categoria = 'supervisao';
-                  indiceNaCategoria = index - 34;
-                }
-                
-                // Obter o valor do checkbox (true/false)
-                const isChecked = loja[categoria][indiceNaCategoria];
-                
-                return (
-                  <td key={index} className="checkbox-loja">
-                    <OverlayTrigger
-                      placement="top"
-                      overlay={renderTooltip(etapa)}
-                    >
-                      <div>
-                        <Form.Check 
-                          type="checkbox" 
-                          checked={isChecked}
-                          onChange={() => handleCheckboxChange(loja.id, categoria, indiceNaCategoria)}
-                        />
-                      </div>
-                    </OverlayTrigger>
-                  </td>
-                );
-              })}
-              
-              <td className='ultima-coluna'>
-                01/01/2026
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+                <td className='ultima-coluna'>
+                  01/01/2026
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </>
   );
 };

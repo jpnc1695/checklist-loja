@@ -1,28 +1,46 @@
-/* import './App.css'
-import Card from './Components/Card/Card.jsx';
-import Tabela from './Components/Tabelas/Tabela.jsx';
-function App() {
-
-  return (
-    <div className='main-container'>
-        <Card />
-        <Tabela/>
-    </div>
-  )
-}
-
-export default App
- */
 
 import './App.css'
 import Card from './Components/Card/Card.jsx';
 import Tabela from './Components/Tabelas/Tabela.jsx';
 import TabelaLojas from './Components/TabelaLojas/TabelaLojas.jsx';
 import { tabelaData } from './data/dados.js';
-import { lojas } from './data/loja.js';
-
-
+import { useState, useEffect } from 'react'; 
 function App() {
+
+  const [dadosSheets, setDadosSheets] = useState(null); // Estado para armazenar os dados
+  const [carregando, setCarregando] = useState(true); // Estado de carregamento
+  const [erro, setErro] = useState(null); // Estado de erro
+  const url = "https://script.google.com/macros/s/AKfycbwdlyjlpHvWls8dk-9cfwwpy6GUldAnpfSDI20qttNEU3rDJs23A9iTkF3kRkVQzetLgw/exec"  
+
+  async function fetchData() {
+    try {
+      setCarregando(true);
+      setErro(null);
+      
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error(`Erro HTTP: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log('Dados recebidos:', data);
+      
+      setDadosSheets(data); // Armazena os dados no estado
+      return data;
+      
+    } catch (error) {
+      console.error('Erro:', error);
+      setErro(error.message);
+    } finally {
+      setCarregando(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchData(); // Executa a busca automaticamente
+  }, []);
+
   return (
     
     <>
@@ -56,7 +74,11 @@ function App() {
                 <span>Próximas inaugurações</span>
             </div>
           <section>
-          <TabelaLojas>
+          <TabelaLojas   
+              dados={dadosSheets} 
+              carregando={carregando} 
+              erro={erro}
+              onRecarregar={fetchData}>
             
           </TabelaLojas>
           </section>
@@ -65,7 +87,4 @@ function App() {
   )
 }
          
-       
-         
-
 export default App
