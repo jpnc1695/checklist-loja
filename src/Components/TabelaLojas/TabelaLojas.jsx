@@ -256,13 +256,15 @@ const TabelaLojas = ({ dados, carregando, erro, onRecarregar }) => {
                   
                   const isChecked = loja[categoria][indiceNaCategoria];
                   
-                  return (
+                 return (
                     <td key={index} className="checkbox-loja">
                       <OverlayTrigger placement="top" overlay={renderTooltip(etapa)}>
                         <div className="d-flex justify-content-center align-items-center" style={{ height: '100%' }}>
-                          {isChecked && (
+                          {isChecked ? (
                             <CheckCircle size={20} color="green" className="icon-check" />
-                          ) }
+                          ) : (
+                            <XCircle size={20} color="transparent" className="icon-x" />
+                          )}
                         </div>
                       </OverlayTrigger>
                     </td>
