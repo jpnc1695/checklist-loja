@@ -10,7 +10,7 @@ function App() {
   const [dadosSheets, setDadosSheets] = useState(null); // Estado para armazenar os dados
   const [carregando, setCarregando] = useState(true); // Estado de carregamento
   const [erro, setErro] = useState(null); // Estado de erro
-  const url = "https://script.google.com/macros/s/AKfycbwdlyjlpHvWls8dk-9cfwwpy6GUldAnpfSDI20qttNEU3rDJs23A9iTkF3kRkVQzetLgw/exec"  
+  const url = "https://script.google.com/macros/s/AKfycbzmXIiqK4cV-5Z_-T0d6DW5ZsYFLw_iIrTqfqrOQfp35CA7m2Pmbb6VJeVSfh1NagG8cA/exec"  
 
   async function fetchData() {
     try {

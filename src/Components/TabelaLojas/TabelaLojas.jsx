@@ -1,7 +1,8 @@
-import Table from 'react-bootstrap/Table';
 import { Form, Tooltip, OverlayTrigger, Spinner, Alert, Button } from 'react-bootstrap';
-import './TabelaLojas.css';
 import { useState, useEffect } from 'react';
+import Table from 'react-bootstrap/Table';
+import { CheckCircle, XCircle } from 'lucide-react'; // Importar ícones da Lucide
+import './TabelaLojas.css';
 
 const todasEtapas = [
   // Expansão (14 itens)
@@ -70,6 +71,8 @@ const TabelaLojas = ({ dados, carregando, erro, onRecarregar }) => {
   const [lojas, setLojas] = useState([]);
   const [dadosFormatados, setDadosFormatados] = useState(false);
 
+  var dataInauguração = ""
+
   // Transformar os dados do Sheets para o formato esperado pelo componente
   useEffect(() => {
     if (dados && dados.success && dados.data) {
@@ -97,6 +100,7 @@ const TabelaLojas = ({ dados, carregando, erro, onRecarregar }) => {
               todasLojas[lojaId] = {
                 id: lojaId,
                 nome: lojaSheets.nome_loja || lojaSheets['Nome da Loja'] || `Loja ${lojaId}`,
+                dataInauguração: lojaSheets.data_inauguracao,
                 expansao: new Array(14).fill(false),
                 compras: new Array(7).fill(false),
                 financeiro: new Array(3).fill(false),
@@ -125,8 +129,6 @@ const TabelaLojas = ({ dados, carregando, erro, onRecarregar }) => {
       
       // Converter objeto para array
       const lojasArray = Object.values(todasLojas);
-      console.log('Lojas formatadas:', lojasArray);
-      
       setLojas(lojasArray);
       setDadosFormatados(true);
       
@@ -225,10 +227,9 @@ const TabelaLojas = ({ dados, carregando, erro, onRecarregar }) => {
       <div className="table-responsive">
         <Table bordered hover responsive>
           <tbody className="tabela-lojas">
-            {lojas.map((loja) => (
+            {lojas.map((loja) => (       
               <tr key={loja.id}>
                 <td className="primeira-coluna">{loja.nome}</td>
-
                 {todasEtapas.map((etapa, index) => {
                   let categoria;
                   let indiceNaCategoria;
@@ -258,12 +259,10 @@ const TabelaLojas = ({ dados, carregando, erro, onRecarregar }) => {
                   return (
                     <td key={index} className="checkbox-loja">
                       <OverlayTrigger placement="top" overlay={renderTooltip(etapa)}>
-                        <div>
-                          <Form.Check 
-                            type="checkbox" 
-                            checked={isChecked}
-                            onChange={() => handleCheckboxChange(loja.id, categoria, indiceNaCategoria)}
-                          />
+                        <div className="d-flex justify-content-center align-items-center" style={{ height: '100%' }}>
+                          {isChecked && (
+                            <CheckCircle size={20} color="green" className="icon-check" />
+                          ) }
                         </div>
                       </OverlayTrigger>
                     </td>
@@ -271,7 +270,7 @@ const TabelaLojas = ({ dados, carregando, erro, onRecarregar }) => {
                 })}
                 
                 <td className='ultima-coluna'>
-                  01/01/2026
+                  {loja.dataInauguração}
                 </td>
               </tr>
             ))}
