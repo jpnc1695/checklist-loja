@@ -27,6 +27,15 @@ const Card = () => {
       <div className='form-radio'>
       <Form>
           <div className="radio-group">
+          <Form.Check
+              type={'radio'}
+              id={'todos'}
+              label={'Todos'}
+              checked={selectedOption === 'todos'}
+              onChange={() => handleRadioChange('todos')}
+              key={3}
+            />
+
             <Form.Check
               type={'radio'}
               id={'pendente'}
@@ -43,14 +52,7 @@ const Card = () => {
               onChange={() => handleRadioChange('cumprido')}
               key={2}
             />
-            <Form.Check
-              type={'radio'}
-              id={'nao-aplica'}
-              label={'Não Aplica'}
-              checked={selectedOption === 'nao-aplica'}
-              onChange={() => handleRadioChange('nao-aplica')}
-              key={3}
-            />
+       
           </div>
         </Form>
       </div> 
