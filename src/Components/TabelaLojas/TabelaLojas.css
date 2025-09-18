@@ -3,8 +3,11 @@
   color: #242424 !important;
 }
 
-.primeira-coluna{
-  width: 310px;
+.primeira-coluna {
+  width: 270px;
+  font-weight: bold;
+  border-right: 3px solid #333333 !important; /* Separador à direita */
+  position: relative;
 }
 
 .checkbox-loja{
@@ -12,28 +15,21 @@
   cursor: pointer;
 }
 
-.ultima-coluna{
-  width: 110px;
-}
-
 .checkbox-loja {
   text-align: center;
   padding: 4px !important;
-  max-width: 20px;
-  min-width: 28px;
+  width: 26.6px;
+  height: 20px;
   position: relative;
 }
 
-.primeira-coluna {
-  min-width: 180px;
-  font-weight: bold;
-}
-
 .ultima-coluna {
-  min-width: 100px;
+  width: 180px;
   text-align: center;
+  margin-left: 3px;
+  border-left: 3px solid #333333 !important; /* Separador à esquerda */
+  position: relative;
 }
-
 .tabela-lojas tr:hover {
   background-color: rgba(0, 123, 255, 0.05);
 }
@@ -44,18 +40,6 @@
   max-width: 250px;
   z-index: 1060;
   background-color: black;
-}
-
-/* Melhorar a aparência dos checkboxes */
-.form-check-input {
-  cursor: pointer;
-  width: 15px;
-  height: 18px;
-}
-
-.form-check-input:checked {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
 }
 
 .icon-check {
@@ -73,4 +57,11 @@
 
 .checkbox-loja:hover {
   background-color: #f8f9fa;
+}
+
+.separador-categoria {
+  width: 0.5px;
+  background-color: #333333;
+  border: none;
+  padding: 0;
 }

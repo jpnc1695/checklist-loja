@@ -14,8 +14,9 @@
 .previsao-inauguracao{
   writing-mode: vertical-rl; /* texto em pé */
   transform: rotate(180deg); /* corrige de ponta cabeça */ 
-  padding: 35px;
-  font-size: 28px;
+  width: 16px;
+  padding: 70px;
+  font-size: 25px;
 }
 
 .proximas-inaugurações{

@@ -8,41 +8,42 @@
   background-color: white !important;
 }
 
-.tbody-branco tr {
+.tbody-branco tr td {
   background-color: white !important;
   color: #242424 !important;
 
 }
 
-.tbody-branco tr td {
+/* .tbody-branco tr td {
   background-color: white !important;
 
-}
+} */
 
 .tabela-horizontal tbody {
   display: flex;            /* coloca os <tr> lado a lado */
   flex-direction: row;      /* garante que vá pra horizontal */
-  height: 390px;        /* altura da tabela */
-
+  height: 390px;     /* altura da tabela */
 }
 
 .tabela-horizontal tr {
   display: flex;            /* cada <tr> vira um flex container */
   flex-direction: column;   /* dentro dele, os <td> ficam empilhados */
-  margin: 0 8px;            /* espaço entre os blocos */
+  margin: 0 6.2px 2px;            /* espaço entre os blocos */
   
 }
-
+td:first-child{
+  margin-left: 3px;
+}
 .tabela-horizontal td {
   writing-mode: vertical-rl; /* texto em pé */
   transform: rotate(180deg); /* corrige de ponta cabeça */
   text-align: center;
-  padding: 2px;        /* diminui o padding */
-  line-height: 1.1;    /* diminui o espaçamento entre linhas */
+  padding: 3.0px;        /* diminui o padding */
+  line-height: 1.0;    /* diminui o espaçamento entre linhas */
   height: 100%;                /* ocupa 100% da célula */
   text-align: center;
   font-size: 15px;
-  border-left : 1px dotted #ddd;
-  background-color:  #242424;
+/*   border-left : 1px dotted #ddd;
+ */  background-color:  #242424;
   border-right: white;
 }

@@ -217,65 +217,70 @@ const TabelaLojas = ({ dados, carregando, erro, onRecarregar }) => {
 
   return (
     <>
-   {/*    <div className="d-flex justify-content-between align-items-center mb-3">
-        <h4>Status das Lojas ({lojas.length} lojas carregadas)</h4>
-        <Button variant="outline-primary" size="sm" onClick={onRecarregar}>
-          ↻ Atualizar
-        </Button>
-      </div> */}
-
       <div className="table-responsive">
         <Table bordered hover responsive>
           <tbody className="tabela-lojas">
-            {lojas.map((loja) => (       
-              <tr key={loja.id}>
-                <td className="primeira-coluna">{loja.nome}</td>
-                {todasEtapas.map((etapa, index) => {
-                  let categoria;
-                  let indiceNaCategoria;
-                  
-                  if (index < 14) {
-                    categoria = 'expansao';
-                    indiceNaCategoria = index;
-                  } else if (index < 21) {
-                    categoria = 'compras';
-                    indiceNaCategoria = index - 14;
-                  } else if (index < 24) {
-                    categoria = 'financeiro';
-                    indiceNaCategoria = index - 21;
-                  } else if (index < 29) {
-                    categoria = 'sistema';
-                    indiceNaCategoria = index - 24;
-                  } else if (index < 34) {
-                    categoria = 'marketing';
-                    indiceNaCategoria = index - 29;
-                  } else {
-                    categoria = 'supervisao';
-                    indiceNaCategoria = index - 34;
-                  }
-                  
-                  const isChecked = loja[categoria][indiceNaCategoria];
-                  
-                 return (
-                    <td key={index} className="checkbox-loja">
-                      <OverlayTrigger placement="top" overlay={renderTooltip(etapa)}>
-                        <div className="d-flex justify-content-center align-items-center" style={{ height: '100%' }}>
-                          {isChecked ? (
-                            <CheckCircle size={20} color="green" className="icon-check" />
-                          ) : (
-                            <XCircle size={20} color="transparent" className="icon-x" />
-                          )}
-                        </div>
-                      </OverlayTrigger>
-                    </td>
-                  );
-                })}
-                
-                <td className='ultima-coluna'>
-                  {loja.dataInauguração}
+          {lojas.map((loja) => (       
+        <tr key={loja.id}>
+          <td className="primeira-coluna">{loja.nome}</td>
+          {todasEtapas.map((etapa, index) => {
+            let categoria;
+            let indiceNaCategoria;
+            
+            // Determinar a categoria atual
+            if (index < 14) {
+              categoria = 'expansao';
+              indiceNaCategoria = index;
+            } else if (index < 21) {
+              categoria = 'compras';
+              indiceNaCategoria = index - 14;
+            } else if (index < 24) {
+              categoria = 'financeiro';
+              indiceNaCategoria = index - 21;
+            } else if (index < 29) {
+              categoria = 'sistema';
+              indiceNaCategoria = index - 24;
+            } else if (index < 34) {
+              categoria = 'marketing';
+              indiceNaCategoria = index - 29;
+            } else {
+              categoria = 'supervisao';
+              indiceNaCategoria = index - 34;
+            }
+            
+            const isChecked = loja[categoria][indiceNaCategoria];
+            
+            // Renderizar célula normal + separador quando necessário
+            return (
+              <>
+                {/* Célula normal */}
+                <td key={`${loja.id}-${index}`} className="checkbox-loja">
+                  <OverlayTrigger placement="top" overlay={renderTooltip(etapa)}>
+                    <div className="d-flex justify-content-center align-items-center" style={{ height: '100%' }}>
+                      {isChecked ? (
+                        <CheckCircle size={18} color="green" className="icon-check" />
+                      ) : (
+                        <XCircle size={18} color="transparent" className="icon-x" />
+                      )}
+                    </div>
+                  </OverlayTrigger>
                 </td>
-              </tr>
-            ))}
+                
+                {/* Separador após cada categoria (exceto a última) */}
+                {index === 13 && <td key={`${loja.id}-sep-1`} className="separador-categoria"></td>}
+                {index === 20 && <td key={`${loja.id}-sep-2`} className="separador-categoria"></td>}
+                {index === 23 && <td key={`${loja.id}-sep-3`} className="separador-categoria"></td>}
+                {index === 28 && <td key={`${loja.id}-sep-4`} className="separador-categoria"></td>}
+                {index === 33 && <td key={`${loja.id}-sep-5`} className="separador-categoria"></td>}
+              </>
+            );
+          })}
+    
+          <td className='ultima-coluna'>
+            {loja.dataInauguração}
+          </td>
+        </tr>
+    ))}
           </tbody>
         </Table>
       </div>

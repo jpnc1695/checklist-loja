@@ -22,7 +22,7 @@ const Card = () => {
       <div>
         <h1>CHECK LIST </h1>
         <p>Implantação Loja</p>
-        <p>2014 Interno</p>
+        <p>2025 Interno</p>
       </div> 
       <div className='form-radio'>
       <Form>
