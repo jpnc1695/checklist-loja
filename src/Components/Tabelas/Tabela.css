@@ -14,11 +14,6 @@
 
 }
 
-/* .tbody-branco tr td {
-  background-color: white !important;
-
-} */
-
 .tabela-horizontal tbody {
   display: flex;            /* coloca os <tr> lado a lado */
   flex-direction: row;      /* garante que vá pra horizontal */
@@ -43,7 +38,6 @@ td:first-child{
   height: 100%;                /* ocupa 100% da célula */
   text-align: center;
   font-size: 15px;
-/*   border-left : 1px dotted #ddd;
- */  background-color:  #242424;
+  background-color:  #242424;
   border-right: white;
 }

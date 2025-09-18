@@ -73,14 +73,14 @@ function App() {
             <div className='proximas-inaugurações'>
                 <span>Próximas inaugurações</span>
             </div>
-          <section>
-          <TabelaLojas   
-              dados={dadosSheets} 
-              carregando={carregando} 
-              erro={erro}
-              onRecarregar={fetchData}>
-            
-          </TabelaLojas>
+          <section className='tabela-loja-main'>
+            <TabelaLojas   
+                dados={dadosSheets} 
+                carregando={carregando} 
+                erro={erro}
+                onRecarregar={fetchData}>
+              
+            </TabelaLojas>
           </section>
     </>
               

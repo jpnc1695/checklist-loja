@@ -218,7 +218,7 @@ const TabelaLojas = ({ dados, carregando, erro, onRecarregar }) => {
   return (
     <>
       <div className="table-responsive">
-        <Table bordered hover responsive>
+        <Table bordered hover responsive >
           <tbody className="tabela-lojas">
           {lojas.map((loja) => (       
         <tr key={loja.id}>
