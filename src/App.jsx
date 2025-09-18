@@ -41,7 +41,7 @@ function App() {
     fetchData(); // Executa a busca automaticamente
     
     // Adicionei estas linhas para polling automático
-    intervaloRef.current = setInterval(fetchData, 1800000 ); // Atualiza a cada 30 segundos
+    intervaloRef.current = setInterval(fetchData, 1800000 ); 
     
     // Limpa o intervalo quando o componente for desmontado
     return () => {
