@@ -24,7 +24,7 @@ const Card = () => {
         <p>Implantação Loja</p>
         <p>2025 Interno</p>
       </div> 
-      <div className='form-radio'>
+{/*       <div className='form-radio'>
       <Form>
           <div className="radio-group">
           <Form.Check
@@ -55,7 +55,7 @@ const Card = () => {
        
           </div>
         </Form>
-      </div> 
+      </div>  */}
     </section>
 
     <section className='footer-card'>

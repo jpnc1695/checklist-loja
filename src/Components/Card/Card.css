@@ -5,7 +5,7 @@
   border-color: aliceblue;
   border-style: solid;
   border-top: solid;
-   border-top-color: #242424;
+  border-top-color: #242424;
   text-align: center;
 }
 h1{
@@ -15,6 +15,7 @@ h1{
 
 p{
   font-size: 20px;
+  vertical-align: center;
 }
 
 /* Card.css */
